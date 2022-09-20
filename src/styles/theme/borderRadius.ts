@@ -4,6 +4,6 @@ export interface ThemeBorderRadius {
 }
 
 export const borderRadius = {
-  small: '12px',
-  medium: '16px',
+  small: '0.75rem',
+  medium: '1rem',
 };

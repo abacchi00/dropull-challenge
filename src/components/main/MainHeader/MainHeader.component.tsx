@@ -7,7 +7,7 @@ import { StyledHeader } from './MainHeader.styles';
 const MainHeader = () => {
   return (
     <StyledHeader>
-      <Image src={gunstarsLogo} width="137px" height="30px" />
+      <Image src={gunstarsLogo} width={137} height={30} />
     </StyledHeader>
   );
 }
