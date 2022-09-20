@@ -1,13 +1,17 @@
-import { ThemeProvider } from "@emotion/react";
+import { Global, ThemeProvider } from "@emotion/react";
 import { AppProps } from "next/app";
 
-import { theme } from "@/theme";
+import { globalStyles, theme } from "@/styles";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Global styles={globalStyles} />
+
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 };
 
