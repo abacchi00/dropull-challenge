@@ -1,6 +1,6 @@
 import { TestComponent } from "@/components/atoms/TestComponent";
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div>
       Dropull challenge
@@ -10,4 +10,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default Home;
