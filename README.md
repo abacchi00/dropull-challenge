@@ -16,7 +16,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 # ****Optional Criteria (Nice to Have)****
 
 - :heavy_multiplication_x: Use of CSS-in-JS
-- :heavy_multiplication_x: Use of TypeScript
+- :heavy_check_mark: Use of TypeScript
 - :heavy_multiplication_x: Use of [Storybook](https://storybook.js.org/)
 - :heavy_multiplication_x: Loading transitions between pages (e.g. [react-loading-skeleton](https://github.com/dvtng/react-loading-skeleton))
 - :heavy_multiplication_x: Accessibility concerns
