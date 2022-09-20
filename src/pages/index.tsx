@@ -1,9 +1,11 @@
 import { TestComponent } from "@/components/atoms/TestComponent";
 
+import { MainHeader } from "@/components/main";
+
 const Home = () => {
   return (
     <div>
-      Dropull challenge
+      <MainHeader />
 
       <TestComponent />
     </div>
