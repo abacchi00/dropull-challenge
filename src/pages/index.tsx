@@ -1,4 +1,4 @@
-import { Input } from "@/components/common/atoms";
+import { Divider, Input } from "@/components/common/atoms";
 import { GameBanner, NFTCard } from "@/components/common/organisms";
 import { MainLayout } from "@/components/main/MainLayout";
 
@@ -10,7 +10,7 @@ const Home = () => {
       <GameBanner {...gunstarsGame} backgroundImage={gunstarsGame.bannerImage} />
 
       <div style={{ padding: '0 32px', display: 'flex', flexDirection: 'column', gap: '32px' }}>{/* TODO refactor */}
-        <div style={{ width: '100%', borderBottom: '1px solid #1E1E23' }}/>
+        <Divider />
 
         <Input placeholder="Search" />
 
