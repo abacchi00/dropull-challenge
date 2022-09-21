@@ -10,10 +10,16 @@ export const globalStyles = css`
   body {
     height: inherit;
     width: inherit;
-    font: normal 1rem Gotham, sans-serif;
+    font: 500 1rem SpaceGrotesk, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: ${theme.colors.light[100]};
     background: ${theme.colors.dark[100]};
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.25rem;
   }
 
   *,
