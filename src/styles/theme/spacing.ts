@@ -3,6 +3,7 @@ export interface ThemeSpacing {
   small: string;
   medium: string;
   large: string;
+  extraLarge: string;
 }
 
 export const spacing = {
@@ -10,4 +11,5 @@ export const spacing = {
   small: '0.75rem',
   medium: '1rem',
   large: '2rem',
+  extraLarge: '2.5rem',
 };
