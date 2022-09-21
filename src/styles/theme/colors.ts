@@ -13,8 +13,8 @@ export interface ThemeColors {
 export const colors: ThemeColors = {
   dark: {
     100: "#0A0A0D",
-    200: "#1E1E23",
-    300: "#1e1e23cc",
+    200: "#121216",
+    300: "#1E1E23",
     400: "#525059",
   },
   light: {
