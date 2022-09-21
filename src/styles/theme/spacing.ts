@@ -1,12 +1,9 @@
-export interface ThemeSpacing {
-  extraSmall: string;
-  small: string;
-  medium: string;
-  large: string;
-  extraLarge: string;
-}
+export type ThemeSpacingOption = 'tiny' | 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 
-export const spacing = {
+export type ThemeSpacing = { [key in ThemeSpacingOption]: string };
+
+export const spacing: ThemeSpacing = {
+  tiny: '0.25rem',
   extraSmall: '0.5rem',
   small: '0.75rem',
   medium: '1rem',

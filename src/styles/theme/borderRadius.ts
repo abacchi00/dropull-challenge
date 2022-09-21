@@ -1,9 +1,8 @@
-export interface ThemeBorderRadius {
-  small: string;
-  medium: string;
-}
+export type ThemeBorderRadiusOption = 'small' | 'medium';
 
-export const borderRadius = {
+export type ThemeBorderRadius = { [key in ThemeBorderRadiusOption]: string };
+
+export const borderRadius: ThemeBorderRadius = {
   small: '0.75rem',
   medium: '1rem',
 };
