@@ -25,3 +25,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: It doesn't have to be pixel perfect but follow the layout
 - :heavy_multiplication_x: Use theme with design tokens
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
+
+# ****TODOS (meus)****
+- Upload de demo pro Vercel
+- Deixar a home mais responsiva (tirar paddings quando passar de 540px)
