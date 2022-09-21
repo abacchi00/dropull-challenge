@@ -3,16 +3,17 @@ import styled from '@emotion/styled';
 interface StyledCardAttributes {
   maxWidth: string;
   maxHeight: string;
+  type: 'primary' | 'secondary';
 }
 
 export const StyledCard = styled.div<StyledCardAttributes>`
   display: flex;
   flex-direction: column;
 
-  border: 1px solid ${({ theme }) => theme.colors.dark[300]};
+  border: ${({ theme, type }) => type === 'primary' ? `1px solid ${theme.colors.dark[300]}` : 'none'};
   border-radius: ${({ theme }) => theme.borderRadius.medium};
 
-  background-color: ${({ theme }) => theme.colors.dark[200]};
+  background-color: ${({ theme, type }) => theme.colors.dark[type === 'primary' ? 200 : 300]};
 
   padding: ${({ theme }) => theme.spacing.medium};
   gap: ${({ theme }) => theme.spacing.medium};
