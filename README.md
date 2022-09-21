@@ -29,3 +29,4 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 # ****TODOS (meus)****
 - Upload de demo pro Vercel
 - Deixar a home mais responsiva (tirar paddings quando passar de 540px)
+- Adicionar ESLint
