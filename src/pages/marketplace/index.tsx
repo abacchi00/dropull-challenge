@@ -20,7 +20,6 @@ const AfterBanner = styled.div`
   }
 `;
 
-
 const Home = () => {
   return (
     <MainLayout>
@@ -42,14 +41,7 @@ const Home = () => {
         <Input placeholder="Search" />
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'center' }}> {/* TODO refactor */}
-          {nfts.map(nft =>
-            <NFTCard
-              img={nft.img}
-              title={nft.title}
-              solPrice={nft.solPrice}
-              brlPrice={nft.brlPrice}
-            />
-          )}
+          {nfts.map(nft => <NFTCard {...nft}/>)}
         </div>
       </AfterBanner>
     </MainLayout>
