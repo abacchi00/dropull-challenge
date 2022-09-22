@@ -27,6 +27,11 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
+- Terminar de fazer funcionando
 - Upload de demo pro Vercel
+- Terminar Componentizar
+- Arrumar responsividade
+- Adicionar testes
 - Deixar a home mais responsiva (tirar paddings quando passar de 540px)
 - Adicionar ESLint
+- Adicionar internacionalização
