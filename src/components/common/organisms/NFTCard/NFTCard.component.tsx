@@ -1,6 +1,7 @@
+import { useRouter } from 'next/router';
+
 import { Button, Card } from '@/components/common/atoms';
 import { InfoDisplay } from '@/components/common/molecules/InfoDisplay';
-import { useRouter } from 'next/router';
 
 import { ImageContainer, PricesBanner } from './NFTCard.styles';
 
