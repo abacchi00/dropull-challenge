@@ -17,7 +17,7 @@ export const BannerContainer = styled.div<{ backgroundImage: any }>`
   justify-content: flex-end;
   gap: ${({ theme }) => theme.spacing.medium };
 
-  box-shadow: 0 0 6rem 1rem #000 inset;
+  box-shadow: 0 0 4rem 1rem #000 inset;
 
   @media (max-width: 720px) { // TODO breakpoint
     padding: ${({ theme }) => theme.spacing.medium };
