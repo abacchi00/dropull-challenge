@@ -1,20 +1,46 @@
+import styled from '@emotion/styled'; // TODO remove
+
 import { Divider, Input } from "@/components/common/atoms";
+import { InfoDisplay } from "@/components/common/molecules/InfoDisplay";
 import { GameBanner, NFTCard } from "@/components/common/organisms";
 import { MainLayout } from "@/components/main/MainLayout";
 
 import { nfts, gunstarsGame } from "@/mocks";
+import { theme } from "@/styles";
+
+// TODO REFACTOR
+const AfterBanner = styled.div`
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media(max-width: 540px) {
+    padding: 0;
+  }
+`;
 
 const Home = () => {
   return (
     <MainLayout>
       <GameBanner {...gunstarsGame} backgroundImage={gunstarsGame.bannerImage} />
 
-      <div style={{ padding: '0 32px', display: 'flex', flexDirection: 'column', gap: '32px' }}>{/* TODO refactor */}
+      <AfterBanner>{/* TODO refactor */}
+        <div style={{ display: 'flex', gap: theme.spacing.large, flexWrap: 'wrap' }}>
+          <InfoDisplay type="inline" icon={{ type: 'game_developer_icon' }} title="Developer:" value="Monomyto Game Studio" />
+
+          <InfoDisplay type="inline" icon={{ type: 'released_icon' }} title="Released in:" value="10 jun 2022" />
+        </div>
+
+        <p style={{ fontSize: '14px', lineHeight: '20px', color: theme.colors.dark[400] }}>
+          Fight, explore and create the best strategy to survive epic battles with up to 36 players. Novel gameplay, combining a short learning curve with a high skill cap that a great Battle-Royale game deserves. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+
         <Divider />
 
         <Input placeholder="Search" />
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', maxWidth: '1440px', alignItems: 'center', justifyContent: 'center' }}> {/* TODO refactor */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'center' }}> {/* TODO refactor */}
           {nfts.map(nft =>
             <NFTCard
               img={nft.img}
@@ -24,7 +50,7 @@ const Home = () => {
             />
           )}
         </div>
-      </div>
+      </AfterBanner>
     </MainLayout>
   )
 }

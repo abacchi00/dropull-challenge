@@ -18,6 +18,14 @@ export const BannerContainer = styled.div<{ backgroundImage: any }>`
   gap: ${({ theme }) => theme.spacing.medium };
 
   box-shadow: 0 0 6rem 1rem #000 inset;
+
+  @media (max-width: 540px) { // TODO breakpoint
+    padding: ${({ theme }) => theme.spacing.medium };
+    gap: ${({ theme }) => theme.spacing.small };
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
 `;
 
 export const AvatarContainer = styled.div<{ backgroundImage: any }>`
@@ -28,4 +36,9 @@ export const AvatarContainer = styled.div<{ backgroundImage: any }>`
 
   border-radius: ${({ theme }) => theme.borderRadius.medium };
   border: 2px solid ${({ theme }) => theme.colors.dark[100]};
+
+  @media (max-width: 540px) { // TODO breakpoint
+    height: 4rem;
+    width: 4rem;
+  }
 `;

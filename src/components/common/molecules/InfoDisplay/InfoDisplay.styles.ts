@@ -8,7 +8,18 @@ export const DisplayContainer = styled.div<{ type: InfoDisplayType }>`
 
   ${({ theme, type }) => {
     switch (type) {
-      case 'inline': return 'display: flex; flex-direction: row';
+      case 'inline': return `
+        display: grid;
+        grid-template-rows: 1.5rem;
+        grid-template-columns: auto ${theme.spacing.extraSmall} auto ${theme.spacing.tiny} auto;
+        grid-template-areas: 'icon . title . value';
+
+        grid-gap: unset;
+
+        align-items: center;
+
+        width: max-content;
+      `;
       case 'two-line': case 'two-line-augmented': return `
         display: grid;
         grid-template-rows: auto auto;
