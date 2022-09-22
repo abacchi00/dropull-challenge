@@ -7,7 +7,7 @@ import { ButtonTypes, StyledButton } from './Button.styles';
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   btnType?: ButtonTypes;
   children: React.ReactNode;
-  onClick?: () => void | Promise<void>;
+  onClick?: () => any | Promise<any>;
 }
 
 const Button = ({ children, btnType = 'primary', onClick, ...rest }: Props) => {

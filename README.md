@@ -27,6 +27,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
+- Verificar referrer para nao deixar o cara entrar direto para a rota de sucesso
 - Adicionar contextual routing para os modais
 - Terminar de fazer funcionando
 - Upload de demo pro Vercel
