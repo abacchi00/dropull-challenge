@@ -3,4 +3,5 @@ export interface NFTProduct {
   title: string;
   solPrice: number;
   brlPrice: number;
+  slug: string;
 }
