@@ -7,6 +7,9 @@ export interface ThemeColors {
   },
   light: {
     100: string;
+  },
+  primary: {
+    100: string;
   }
 }
 
@@ -19,5 +22,8 @@ export const colors: ThemeColors = {
   },
   light: {
     100: "#FFFFFF",
+  },
+  primary: {
+    100: "#7D00FF",
   }
 };

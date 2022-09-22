@@ -17,6 +17,14 @@ export const globalStyles = css`
     background: ${theme.colors.dark[100]};
   }
 
+  input,
+  button {
+    font: normal 1rem SpaceGrotesk, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: ${theme.colors.light[100]};
+    font-weight: 600;
+  }
+
   h2 {
     font-weight: 600;
     font-size: 2rem;
