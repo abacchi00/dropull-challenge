@@ -15,7 +15,7 @@ const AfterBanner = styled.div`
   flex-direction: column;
   gap: 32px;
 
-  @media(max-width: 540px) {
+  @media(max-width: 720px) {
     padding: 0;
   }
 `;

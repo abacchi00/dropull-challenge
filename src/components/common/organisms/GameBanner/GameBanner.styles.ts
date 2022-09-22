@@ -19,7 +19,7 @@ export const BannerContainer = styled.div<{ backgroundImage: any }>`
 
   box-shadow: 0 0 6rem 1rem #000 inset;
 
-  @media (max-width: 540px) { // TODO breakpoint
+  @media (max-width: 720px) { // TODO breakpoint
     padding: ${({ theme }) => theme.spacing.medium };
     gap: ${({ theme }) => theme.spacing.small };
     flex-direction: row;
@@ -35,7 +35,6 @@ export const AvatarContainer = styled.div<{ backgroundImage: any }>`
   background-image: url(${props => props.backgroundImage.src}); // only beacuse its a Next.js thing
 
   border-radius: ${({ theme }) => theme.borderRadius.medium };
-  border: 2px solid ${({ theme }) => theme.colors.dark[100]};
 
   @media (max-width: 540px) { // TODO breakpoint
     height: 4rem;

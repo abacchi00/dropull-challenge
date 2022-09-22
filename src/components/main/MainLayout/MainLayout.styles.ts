@@ -15,7 +15,7 @@ export const LayoutContent = styled.div`
   padding: ${({ theme }) => `0 ${theme.spacing.large} ${theme.spacing.large} ${theme.spacing.large}`};
   max-width: 1440px; // todo verify
 
-  @media(max-width: 540px) { // todo breakpoints
+  @media(max-width: 720px) { // todo breakpoints
     padding: ${({ theme }) => `0 ${theme.spacing.medium} ${theme.spacing.large} ${theme.spacing.medium}`}
   }
 `
