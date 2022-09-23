@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 interface StyledCardAttributes {
-  maxWidth: string;
-  maxHeight: string;
+  maxWidth?: string;
+  maxHeight?: string;
   clickable: boolean;
 }
 
@@ -19,8 +19,6 @@ export const StyledCard = styled.div<StyledCardAttributes>`
   padding: ${({ theme }) => theme.spacing.medium};
   gap: ${({ theme }) => theme.spacing.medium};
 
-  width: min-content;
-  height: min-content;
   max-width: ${props => props.maxWidth};
   max-height: ${props => props.maxHeight};
 

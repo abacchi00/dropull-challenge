@@ -1,12 +1,13 @@
-import { MouseEventHandler } from "react";
+import { CSSProperties, MouseEventHandler } from "react";
 
 import { StyledCard } from "./Card.styles";
 
 interface Props {
-  maxWidth: string;
-  maxHeight: string;
   children: React.ReactNode;
+  maxHeight?: string;
+  maxWidth?: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  style?: CSSProperties;
 }
 
 const Card = ({ children, ...rest }: Props) => {
