@@ -1,4 +1,4 @@
-export type ThemeSpacingOption = 'tiny' | 'extraSmall' | 'small' | 'medium' | 'large' | 'big' | 'extraLarge';
+export type ThemeSpacingOption = 'tiny' | 'extraSmall' | 'small' | 'medium' | 'large' | 'big' | 'extraLarge' | 'huge';
 
 export type ThemeSpacing = { [key in ThemeSpacingOption]: string };
 
@@ -10,4 +10,5 @@ export const spacing: ThemeSpacing = {
   big: '1.5rem',
   large: '2rem',
   extraLarge: '2.5rem',
+  huge: '3.5rem',
 };

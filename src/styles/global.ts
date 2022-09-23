@@ -25,10 +25,22 @@ export const globalStyles = css`
     font-weight: 600;
   }
 
+  h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
   h2 {
     font-weight: 600;
     font-size: 2rem;
     line-height: 2.25rem;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
   }
 
   *,
