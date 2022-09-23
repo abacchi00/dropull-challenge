@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
 import { MainLayout } from "@/components/main/MainLayout";
-import { nfts } from "@/mocks";
+import { gunstarsGame, nfts } from "@/mocks";
 import { useRouter } from "next/router";
 import { Button, Card, Icon, Text } from '@/components/common/atoms';
 import { theme } from '@/styles';
 import { PricesBanner } from '@/components/common/organisms/NFTCard/NFTCard.styles';
-import { InfoDisplay } from '@/components/common/molecules';
+import { GameChip, InfoDisplay } from '@/components/common/molecules';
 
 const NFTPage = () => {
   const { query: { nft_slug, step }, push } = useRouter();
@@ -57,6 +57,8 @@ const NFTPage = () => {
         </div>
 
         <Card maxWidth="30rem" maxHeight="35rem" style={{ padding: theme.spacing.huge }}>
+          <GameChip title={gunstarsGame.title} image={gunstarsGame.profileImage} /> {/* TODO simulate fetch of game */}
+
           <h1>{nft.title}</h1>
 
           <Card>
