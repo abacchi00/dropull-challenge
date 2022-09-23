@@ -7,7 +7,7 @@ export const BannerContainer = styled.div<{ backgroundImage: any }>`
   border-radius: ${({ theme }) => theme.borderRadius.medium };
   padding: ${({ theme }) => theme.spacing.large };
 
-  background-image: url(${props => props.backgroundImage.src}); // only beacuse its a Next.js thing
+  background-image: url(${props => props.backgroundImage.src});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 80%;
@@ -32,7 +32,7 @@ export const AvatarContainer = styled.div<{ backgroundImage: any }>`
   height: 5rem;
   width: 5rem;
 
-  background-image: url(${props => props.backgroundImage.src}); // only beacuse its a Next.js thing
+  background-image: url(${props => props.backgroundImage.src});
 
   border-radius: ${({ theme }) => theme.borderRadius.medium };
 
