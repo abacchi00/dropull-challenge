@@ -61,7 +61,7 @@ const Home = () => {
           <InfoDisplay type="inline" icon={{ type: 'released_icon' }} title="Released in:" value="10 jun 2022" />
         </div>
 
-        <Text>
+        <Text maxWidth="50%">
           Fight, explore and create the best strategy to survive epic battles with up to 36 players. Novel gameplay, combining a short learning curve with a high skill cap that a great Battle-Royale game deserves. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Text>
 
