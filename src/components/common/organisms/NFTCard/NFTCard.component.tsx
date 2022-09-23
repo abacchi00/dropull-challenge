@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 import { Button, Card } from '@/components/common/atoms';
 import { InfoDisplay } from '@/components/common/molecules/InfoDisplay';
 
@@ -8,24 +6,19 @@ import { ImageContainer, PricesBanner } from './NFTCard.styles';
 interface Props {
   img: any;
   title: string;
-  slug: string;
   solPrice: number;
   brlPrice: number;
+  handleClick: () => void;
+  handleBuyNow: () => void;
 }
 
-const NFTCard = ({ img, title, solPrice, brlPrice, slug }: Props) => {
-  const { push } = useRouter();
-
-  const handleRedirect = () => {
-    push({ pathname: 'marketplace/[nft_slug]', query: { nft_slug: slug } })
-  };
-
+const NFTCard = ({ img, title, solPrice, brlPrice, handleBuyNow, handleClick }: Props) => {
   return (
-    <Card maxWidth="320px" maxHeight="432px"> {/* é isson mesmo? */}
+    <Card maxWidth="20rem" maxHeight="27rem" onClick={handleClick}>
       <ImageContainer backgroundImage={img}>
-        <Button btnType="secondary" onClick={handleRedirect}>
-          buy now
-        </Button> {/* TODO translate */}
+        <Button btnType="secondary" onClick={event => { event.stopPropagation(); handleBuyNow() }}>
+          buy now {/* TODO translate */}
+        </Button>
       </ImageContainer>
 
       <p>{title}</p>

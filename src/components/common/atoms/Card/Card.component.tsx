@@ -1,15 +1,17 @@
+import { MouseEventHandler } from "react";
+
 import { StyledCard } from "./Card.styles";
 
 interface Props {
   maxWidth: string;
   maxHeight: string;
-  type?: 'primary' | 'secondary';
   children: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const Card = ({ children, maxWidth, maxHeight, type = 'primary' }: Props) => {
+const Card = ({ children, ...rest }: Props) => {
   return (
-    <StyledCard maxWidth={maxWidth} maxHeight={maxHeight} type={type}>
+    <StyledCard clickable={!!rest.onClick} {...rest}>
       {children}
     </StyledCard>
   );

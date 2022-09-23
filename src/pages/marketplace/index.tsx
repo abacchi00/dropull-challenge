@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
 import styled from '@emotion/styled'; // TODO remove
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Divider, Input, Text } from "@/components/common/atoms";
 import { InfoDisplay } from "@/components/common/molecules";
@@ -25,6 +26,8 @@ const AfterBanner = styled.div`
 `;
 
 const Home = () => {
+  const { push } = useRouter();
+
   const [searchNfts, setSearchResults] = useState<NFTProduct[]>([]);
   const [searchString, setSearchString] = useState<string | undefined>();
 
@@ -35,10 +38,12 @@ const Home = () => {
     else setSearchResults(nfts);
   }, [searchString]);
 
-  useEffect(() => {
-    //On mount
+  const handleCheckoutNFT = useCallback((nft: NFTProduct) => push(`marketplace/${nft.slug}?step=checkout`), [push]);
 
-    mockGetNfts();
+  const handleShowNFT = useCallback((nft: NFTProduct) => push(`marketplace/${nft.slug}`), [push]);
+
+  useEffect(() => {
+    mockGetNfts(); // On mount
   }, []);
 
   useEffect(() => {
@@ -65,7 +70,7 @@ const Home = () => {
         <Input placeholder="Search" onChange={(e) => setSearchString(e.target.value)} />
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'center' }}> {/* TODO refactor */}
-          {searchNfts.map(nft => <NFTCard {...nft}/>)}
+          {searchNfts.map(nft => <NFTCard handleClick={() => handleShowNFT(nft)} handleBuyNow={() => handleCheckoutNFT(nft)} {...nft}/>)}
 
           {!searchNfts.length && <p>Ooops... não encontrei nenhum resultado para essa busca</p>}
         </div>

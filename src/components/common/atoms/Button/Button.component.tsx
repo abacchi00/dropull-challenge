@@ -7,18 +7,18 @@ import { ButtonTypes, StyledButton } from './Button.styles';
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   btnType?: ButtonTypes;
   children: React.ReactNode;
-  onClick?: () => any | Promise<any>;
+  onClick?: (event: any) => any | Promise<any>; // TODO type event more carefully
 }
 
 const Button = ({ children, btnType = 'primary', onClick, ...rest }: Props) => {
   const [loading, setLoading] = useState(false);
 
-  const handleClick = async () => {
+  const handleClick = async (event: any) => {
     if (!onClick) return;
 
     setLoading(true);
 
-    await onClick();
+    await onClick(event);
 
     setLoading(false);
   };
