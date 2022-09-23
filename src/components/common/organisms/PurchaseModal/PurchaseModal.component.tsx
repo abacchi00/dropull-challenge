@@ -66,9 +66,11 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
         ? <ModalLoading onClickToCancel={handleCancel} loadingTitle="Purchase" loadingMessage="Send transaction to purchase asset" />
         : (
           <>
-            <h4 style={{ textAlign: 'center' }}>Congrats</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.extraSmall }}>
+              <h4 style={{ textAlign: 'center' }}>Congrats</h4>
 
-            <Text centered>You just purchased <span>{nft.title}</span> from Gunstars.</Text>
+              <Text centered>You just purchased <span>{nft.title}</span> from Gunstars.</Text>
+            </div>
 
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center', backgroundColor: theme.colors.dark[100], padding: theme.spacing.medium, borderRadius: theme.borderRadius.medium }}>
               <div style={{ border: `2px solid ${theme.colors.primary[100]}`, borderRadius: '50%' }}>

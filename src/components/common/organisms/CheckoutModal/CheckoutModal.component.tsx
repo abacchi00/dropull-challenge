@@ -1,22 +1,24 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
-import { Button } from "@/components/common/atoms";
+import { Button, Card, Icon, Text } from "@/components/common/atoms";
 import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
 import { mockAsync } from "@/mocks";
 
 import { theme } from "@/styles";
+import { NFTProduct } from "@/models/nftProduct";
 
 interface Props {
   onCancel: () => void;
   onProceedToPayment: () => void;
+  nft: NFTProduct;
 }
 
 export interface CheckoutModalRef extends ModalRef {
   open: () => Promise<void>;
 }
 
-const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment }, ref) => {
+const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment, nft }, ref) => {
   const modalRef = useRef<ModalRef>(null);
 
   const [loading, setLoading] = useState(false);
@@ -49,11 +51,50 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
   }), []);
 
   return (
-    <Modal ref={modalRef} onClickAway={handleCancel} style={{ padding: theme.spacing.large }}>
+    <Modal ref={modalRef} onClickAway={handleCancel} style={{ padding: theme.spacing.large, gap: theme.spacing.big, maxWidth: '19.25rem' }}>
       {loading
         ? <ModalLoading onClickToCancel={handleCancel} loadingMessage="We are processing your purchase" /> // TODO translate
         : (
-          <Button onClick={handleProceedToPayment}>proceed to payment</Button>
+          <>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.extraSmall }}>
+              <h4 style={{ textAlign: 'center' }}>Checkout</h4>
+
+              <Text centered>You are about to purchase <span>{nft.title}</span> from Gunstars.</Text>
+            </div>
+
+            <Card style={{ flexDirection: 'row', gap: theme.spacing.medium, alignItems: 'center' }}>
+              <Icon size={32} type="phantom_icon" />
+
+              <div style={{ display: 'flex',  flexDirection: 'column' }}>
+                <Text>Solana</Text>
+
+                <Text color="light">0xA2...3868</Text>
+              </div>
+            </Card>
+
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Text>Wallet Balance</Text>
+
+                <Text color="light">3.45 SOL</Text>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Text>Service Fee %</Text>
+
+                <Text color="light">0 SOL</Text>
+              </div>
+
+
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Text>You will pay</Text>
+
+                <Text color="light">{nft.solPrice} SOL</Text>
+              </div>
+            </div>
+
+            <Button onClick={handleProceedToPayment}>proceed to payment</Button>
+          </>
         )
       }
     </Modal>

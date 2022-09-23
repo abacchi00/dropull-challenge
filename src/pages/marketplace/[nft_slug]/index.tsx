@@ -95,6 +95,7 @@ const NFTPage = () => {
 
       <CheckoutModal
         ref={checkoutModalRef}
+        nft={nft}
         onCancel={() => push(`${nft_slug}`)}
         onProceedToPayment={() => push(`${nft_slug}/?step=purchase`)}
       />
