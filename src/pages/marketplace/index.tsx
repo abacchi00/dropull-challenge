@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Divider, Input, Text } from "@/components/common/atoms";
-import { InfoDisplay } from "@/components/common/molecules";
-import { GameBanner, NFTCard } from "@/components/common/organisms";
+import { InfoDisplay, GameBanner } from "@/components/common/molecules";
+import { NFTCard } from "@/components/common/organisms";
 import { MainLayout } from "@/components/main/MainLayout";
 
 import { nfts, gunstarsGame, mockAsync } from "@/mocks";

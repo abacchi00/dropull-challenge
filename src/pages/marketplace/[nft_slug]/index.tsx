@@ -7,11 +7,22 @@ import { Button, Card, Icon, Text } from '@/components/common/atoms';
 import { theme } from '@/styles';
 import { PricesBanner } from '@/components/common/organisms/NFTCard/NFTCard.styles';
 import { GameChip, InfoDisplay } from '@/components/common/molecules';
+import { CheckoutModal, CheckoutModalRef } from '@/components/common/organisms';
+import { PurchaseModal, PurchaseModalRef } from '@/components/common/organisms';
+import { useEffect, useRef } from 'react';
 
 const NFTPage = () => {
   const { query: { nft_slug, step }, push } = useRouter();
 
+  const checkoutModalRef = useRef<CheckoutModalRef>(null);
+  const purchaseModalRef = useRef<PurchaseModalRef>(null);
+
   const nft = nfts.find(nft => nft.slug === nft_slug);
+
+  useEffect(() => {
+    if (step === 'checkout') checkoutModalRef.current?.open();
+    if (step === 'purchase') purchaseModalRef.current?.open();
+  }, [step]);
 
   if (!nft) return <MainLayout>Ops... não há nada por aqui</MainLayout> // TODO translate
 
@@ -76,19 +87,26 @@ const NFTPage = () => {
             </PricesBanner>
           </Card>
 
-          <Button onClick={() => push(`${nft_slug}/?step=checkout`, undefined, { shallow: true })}>
+          <Button onClick={() => push(`${nft_slug}/?step=checkout`)}>
             buy now
           </Button>
         </Card>
       </div>
 
-      {step}
+      <CheckoutModal
+        ref={checkoutModalRef}
+        onCancel={() => push(`${nft_slug}`)}
+        onProceedToPayment={() => push(`${nft_slug}/?step=purchase`)}
+      />
+
+      <PurchaseModal
+        ref={purchaseModalRef}
+        onCancel={() => push(`${nft_slug}`)}
+        onContinue={() => push(`${nft_slug}/?step=purchase`)}
+        onViewNFT={() => window.alert('Visualizando NFT (não implementado)')}
+      />
     </MainLayout>
   );
 };
 
 export default NFTPage;
-
-{/* <Button onClick={() => router.push(`${nft_slug}/?step=checkout`, undefined, { shallow: true })}>Teste checkout</Button>
-
-<Button onClick={() => router.push(`${nft_slug}/?step=success`, undefined, { shallow: true })}>Teste success</Button> */}
