@@ -5,13 +5,13 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_check_mark: Use of React and Next.js
 - :heavy_check_mark: Does it run as expected: Does the step-by-step required to run the application work?
 - :heavy_minus_sign: Code organization: Module separation and project organization
-- <br/><span style="color: gray">Notes: Got to do it better</span>
+<br/><span style="color: gray">Notes: Got to do it better</span>
 - :heavy_multiplication_x: Documentation of your process:
   - :heavy_multiplication_x: Instructions on how to run the project (e.g. README.md, DEVELOPERLOG.md)
   - :heavy_multiplication_x: What was done
   - :heavy_multiplication_x: What could be improved
 - :heavy_minus_sign: Pages must be fully responsive and mobile friendly
-- <br/><span style="color: gray">Notes: Almost done</span>
+<br/><span style="color: gray">Notes: Almost done</span>
 - :heavy_multiplication_x: Unit tests - no need to achieve 100% coverage, but rather cover some components to showcase your test writing skills
 - :heavy_minus_sign: Good markup, semantic HTML and SEO concerns
 <br/><span style="color: gray">Notes: It is up to the evaluator if it has a good Markup and SEO concerns, but I think I would try to improve it if I had more time</span>
@@ -27,7 +27,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: A demo website running on Vercel, Netlify or any other similar free platform
 - :heavy_check_mark: It doesn't have to be pixel perfect but follow the layout
 - :heavy_check_mark: Use theme with design tokens
-- <br/><span style="color: gray">Notes: Got to improve it but yes</span>
+<br/><span style="color: gray">Notes: Got to improve it but yes</span>
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
