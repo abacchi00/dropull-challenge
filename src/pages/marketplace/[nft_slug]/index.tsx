@@ -101,6 +101,7 @@ const NFTPage = () => {
 
       <PurchaseModal
         ref={purchaseModalRef}
+        nft={nft}
         onCancel={() => push(`${nft_slug}`)}
         onContinue={() => push(`${nft_slug}/?step=purchase`)}
         onViewNFT={() => window.alert('Visualizando NFT (não implementado)')}

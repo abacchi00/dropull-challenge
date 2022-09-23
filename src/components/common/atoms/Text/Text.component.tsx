@@ -3,11 +3,13 @@ import { StyledParagraph } from "./Text.styles";
 interface Props {
   maxWidth?: string;
   children: React.ReactNode;
+  color?: 'light' | 'dark';
+  centered?: boolean;
 }
 
-const Text = ({ children, maxWidth }: Props) => {
+const Text = ({ children, maxWidth, color = 'dark', centered = false }: Props) => {
   return (
-    <StyledParagraph maxWidth={maxWidth}>
+    <StyledParagraph maxWidth={maxWidth} color={color} centered={centered}>
       {children}
     </StyledParagraph>
   );

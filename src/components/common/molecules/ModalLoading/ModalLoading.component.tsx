@@ -16,7 +16,7 @@ const ModalLoading = ({ onClickToCancel, loadingMessage, loadingTitle }: Props) 
 
         <h4>{loadingTitle || 'Loading'}</h4> {/* TODO translate */}
 
-        <Text>{loadingMessage}</Text>
+        <Text centered>{loadingMessage}</Text>
       </UpperContainer>
 
       <Button btnType="tertiary" onClick={onClickToCancel}>cancel</Button> {/* TODO translate */}

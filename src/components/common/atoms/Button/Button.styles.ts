@@ -13,7 +13,7 @@ export const StyledButton = styled.button<{ btnType: ButtonTypes, loading: boole
     switch (btnType) {
       case 'primary': return `color: ${theme.colors.light[100]}; background-color: ${theme.colors.primary[100]};`;
       case 'secondary': return `color: ${theme.colors.dark[200]}; background-color: ${theme.colors.light[100]};`;
-      case 'tertiary': return `color: ${theme.colors.light[100]}; background-color: ${theme.colors.dark[300]}; border: 1px solid ${theme.colors.dark[400]};`;
+      case 'tertiary': return `color: ${theme.colors.light[100]}; background-color: ${theme.colors.dark[200]}; border: 1px solid ${theme.colors.dark[300]};`;
     }
   }}
 
