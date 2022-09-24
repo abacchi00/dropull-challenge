@@ -30,7 +30,7 @@ const NFTPage = () => {
     // On Mount
     setLoading(true);
 
-    (async () => await GetNFTService.execute(nft_slug as string).then(nft => {
+    (async () => await GetNFTService.execute(game_slug as string, nft_slug as string).then(nft => {
       setLoading(false);
 
       setNft(nft)

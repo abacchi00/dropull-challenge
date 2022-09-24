@@ -12,6 +12,7 @@ import barbarianImg from '@/assets/images/PNG/barbarian.png';
 export const nfts: NFTProduct[] = [
   {
     slug: 'fries',
+    gameSlug: 'gunstars',
     img: friesImg,
     title: 'Fries Armour',
     solPrice: 2.00,
@@ -24,6 +25,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'cardbox',
+    gameSlug: 'gunstars',
     img: cardboxImg,
     title: 'Cardbox Damage',
     solPrice: 2.75,
@@ -36,6 +38,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'skull-man',
+    gameSlug: 'gunstars',
     img: skullManImg,
     title: 'Skull Man Armour',
     solPrice: 0.22,
@@ -48,6 +51,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'lolli-girl',
+    gameSlug: 'gunstars',
     img: loliGirlImg,
     title: 'Lolli Girl Damage',
     solPrice: 1.00,
@@ -60,6 +64,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'loud-fashion',
+    gameSlug: 'gunstars',
     img: loudFashionImg,
     title: 'LOUD Fashion Vitality',
     solPrice: 5.00,
@@ -72,6 +77,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'loud-skar',
+    gameSlug: 'gunstars',
     img: loudSkarImg,
     title: 'LOUD Skar Speed',
     solPrice: 4.00,
@@ -84,6 +90,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'forest-monkey',
+    gameSlug: 'gunstars',
     img: forestMonkeyImg,
     title: 'Forest Monkey Armour',
     solPrice: 0.01,
@@ -96,6 +103,7 @@ export const nfts: NFTProduct[] = [
   },
   {
     slug: 'barbarian',
+    gameSlug: 'gunstars',
     img: barbarianImg,
     title: 'Barbarian Vitality',
     solPrice: 2.34,
