@@ -1,30 +1,26 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { InfoDisplayType } from './InfoDisplay.component';
 
-export const DisplayContainer = styled.div<{ type: InfoDisplayType }>`
+export const DisplayContainer = styled.div<{ type: InfoDisplayType, hasIcon: boolean }>`
   grid-gap: ${({ theme }) => theme.spacing.extraSmall};
   width: 100%;
   height: fit-content;
 
-  ${({ theme, type }) => {
+  ${({ theme, type, hasIcon }) => {
     switch (type) {
-      case 'inline': return `
-        display: grid;
-        grid-template-rows: 1.5rem;
-        grid-template-columns: auto ${theme.spacing.extraSmall} auto ${theme.spacing.tiny} auto;
-        grid-template-areas: 'icon . title . value';
-
-        grid-gap: unset;
-
+      case 'inline': return css`
+        display: flex;
+        gap: ${theme.spacing.extraSmall};
         align-items: center;
 
         width: max-content;
       `;
-      case 'two-line': case 'two-line-augmented': return `
+      case 'two-line': case 'two-line-augmented': return css`
         display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: 1.5rem 1fr;
-        grid-template-areas: 'title title' 'icon value';
+        grid-template-rows: ${hasIcon ? 'auto auto' : 'auto'};
+        grid-template-columns: ${hasIcon ? '1.5rem 1fr' : '1fr'};
+        grid-template-areas: ${hasIcon ? '"title title" "icon value"' : '"title" "value"'};
       `;
     }
   }};

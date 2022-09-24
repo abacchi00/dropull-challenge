@@ -13,12 +13,14 @@ interface Props {
 
 const InfoDisplay = ({ type, title, value, icon: iconProps }: Props) => {
   return (
-    <DisplayContainer type={type}>
+    <DisplayContainer type={type} hasIcon={!!iconProps}>
+      {type === 'inline' && iconProps && <Icon {...iconProps} style={{ gridArea: 'icon' }} />} {/* refactor */}
+
       <InfoTitle>{title}</InfoTitle>
 
       <InfoValue>{value}</InfoValue>
 
-      {iconProps && <Icon {...iconProps} style={{ gridArea: 'icon' }} />}
+      {!(type === 'inline') && iconProps && <Icon {...iconProps} style={{ gridArea: 'icon' }} />} {/* refactor */}
     </DisplayContainer>
   );
 }
