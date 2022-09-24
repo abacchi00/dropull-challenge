@@ -14,7 +14,7 @@ interface Props {
 
 const NFTCard = ({ img, skinType, solPrice, brlPrice, handleBuyNow, handleClick }: Props) => {
   return (
-    <Card maxWidth="20rem" maxHeight="27rem" onClick={handleClick}>
+    <Card maxWidth="20rem" maxHeight="27rem" onClick={handleClick} highlight="onHover">
       <ImageContainer backgroundImage={img}>
         <Button btnType="secondary" onClick={event => { event.stopPropagation(); handleBuyNow() }}>
           buy now {/* TODO translate */}

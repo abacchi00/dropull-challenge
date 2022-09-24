@@ -27,7 +27,7 @@ const Modal = forwardRef<ModalRef, Props>(({ children, onClickAway, style }, ref
 
   return (
     <BlurredBackground onClick={() => { setOpen(false); onClickAway && onClickAway() }}>
-      <Card style={style}>
+      <Card style={style} onClick={event => event.stopPropagation()} highlight="always">
         {children}
       </Card>
     </BlurredBackground>

@@ -7,6 +7,7 @@ interface StyledCardAttributes {
   backgroundColor?: 100 | 200 | 300 | 400;
   clickable: boolean;
   noBorder: boolean;
+  highlight?: 'onHover' | 'always';
 }
 
 export const StyledCard = styled.div<StyledCardAttributes>`
@@ -24,11 +25,14 @@ export const StyledCard = styled.div<StyledCardAttributes>`
   max-width: ${props => props.maxWidth};
   max-height: ${props => props.maxHeight};
 
-  ${({ clickable, theme }) => clickable && css`
+  ${({ clickable }) => clickable && css`cursor: pointer;`}
+
+  ${({ highlight, theme }) => highlight === 'always' && css`box-shadow: 0 0 0.5rem ${theme.colors.light[100]};`}
+
+  ${({ theme, highlight }) => highlight === 'onHover' && css`
     :hover {
       transition: all 0.2s;
       box-shadow: 0 0 0.5rem ${theme.colors.light[100]};
-      cursor: pointer;
     }
   `}
 `

@@ -30,9 +30,7 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
     modalRef.current.close();
   }
 
-  const handleProceedToPayment = (e: MouseEvent) => {
-    e.stopPropagation(); // To not "click away modal"
-
+  const handleProceedToPayment = () => {
     onProceedToPayment();
 
     modalRef.current.close();
@@ -60,7 +58,7 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
             <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.extraSmall }}>
               <h4 style={{ textAlign: 'center' }}>Checkout</h4>
 
-              <Text centered>You are about to purchase <span>{nft.title}</span> from Gunstars.</Text>
+              <Text centered>You are about to purchase <span>{nft.title}</span> from Gunstars.</Text> {/* TODO i18n */}
             </div>
 
             <Card style={{ flexDirection: 'row', gap: theme.spacing.medium, alignItems: 'center' }}>
@@ -75,26 +73,26 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Text>Wallet Balance</Text>
+                <Text>Wallet Balance</Text> {/* TODO i18n */}
 
                 <Text color="light">3.45 SOL</Text>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Text>Service Fee %</Text>
+                <Text>Service Fee %</Text> {/* TODO i18n */}
 
                 <Text color="light">0 SOL</Text>
               </div>
 
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Text>You will pay</Text>
+                <Text>You will pay</Text> {/* TODO i18n */}
 
                 <Text color="light">{nft.solPrice} SOL</Text>
               </div>
             </div>
 
-            <Button onClick={handleProceedToPayment}>proceed to payment</Button>
+            <Button onClick={handleProceedToPayment}>proceed to payment</Button> {/* TODO i18n */}
           </>
         )
       }

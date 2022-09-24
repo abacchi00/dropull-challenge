@@ -27,25 +27,15 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
   const [loading, setLoading] = useState(false);
 
   const handleCancel = () => {
-    // e.stopPropagation(); // To not "click away modal"
-
     onCancel();
 
     modalRef.current.close();
   }
 
   const handleContinue = () => {
-    // e.stopPropagation(); // To not "click away modal"
-
     onContinue();
 
     modalRef.current.close();
-  }
-
-  const handleViewNFT = (e: any) => {
-    e.stopPropagation(); // To not "click away modal"
-
-    onViewNFT();
   }
 
   useImperativeHandle(ref, () => ({
@@ -90,7 +80,7 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
             </Card>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.small }}>
-              <Button onClick={handleViewNFT}>view NFT</Button>
+              <Button onClick={onViewNFT}>view NFT</Button> {/* TODO translate */}
 
               <Button btnType="tertiary" onClick={handleContinue}>continue</Button> {/* TODO translate */}
             </div>
