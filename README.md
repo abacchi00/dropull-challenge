@@ -11,10 +11,10 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
   - :heavy_multiplication_x: What was done
   - :heavy_multiplication_x: What could be improved
 - :heavy_minus_sign: Pages must be fully responsive and mobile friendly
-<br/><span style="color: gray">Notes: Almost done</span>
+- <br/><span style="color: gray">Notes: Almost done</span>
 - :heavy_multiplication_x: Unit tests - no need to achieve 100% coverage, but rather cover some components to showcase your test writing skills
 - :heavy_minus_sign: Good markup, semantic HTML and SEO concerns
-<br/><span style="color: gray">Notes: It is up to the evaluator if it has a good Markup and SEO concerns, but I think I would try to improve it if I had more time</span>
+<br/><span style="color: gray">Notes: It is up to the evaluator if it has a good Markup and SEO concerns, but I would try to improve it if I had more time</span>
 
 # ****Optional Criteria (Nice to Have)****
 
@@ -31,9 +31,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
-- Arrumar responsividade
 - deixar models mais parrudos (mais informacoes sobre as nfts) E arrumar parte de atributos na pagina da NFT
-- Arrumar InfoDisplay sem Icon
 - Adicionar testes
 - Terminar Componentizar
 - Upload de demo pro Vercel
