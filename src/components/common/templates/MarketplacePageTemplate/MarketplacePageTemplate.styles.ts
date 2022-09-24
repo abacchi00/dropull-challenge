@@ -24,11 +24,3 @@ export const GameInfoContainer = styled.div`
   gap: ${({ theme }) => theme.spacing.large};
   flex-wrap: wrap;
 `;
-
-export const MarketplaceLoading = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.medium};
-`

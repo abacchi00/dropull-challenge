@@ -6,14 +6,13 @@ import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
 import { NFTProduct } from '@/models';
 
-import { mockAsync } from "@/mocks";
-
 import { theme } from "@/styles";
 
 interface Props {
   onCancel: () => void;
-  onContinue: () => void;
   onViewNFT: () => void;
+  onContinue: () => void;
+  onStartPurchase: () => Promise<void>;
   nft: NFTProduct;
 }
 
@@ -21,22 +20,14 @@ export interface PurchaseModalRef extends ModalRef {
   open: () => Promise<void>;
 }
 
-const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinue, onViewNFT, nft }, ref) => {
+const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinue, onViewNFT, nft, onStartPurchase }, ref) => {
   const modalRef = useRef<ModalRef>(null)
 
   const [loading, setLoading] = useState(false);
 
-  const handleCancel = () => {
-    onCancel();
+  const handleCancel = () => { onCancel(); modalRef.current.close(); }
 
-    modalRef.current.close();
-  }
-
-  const handleContinue = () => {
-    onContinue();
-
-    modalRef.current.close();
-  }
+  const handleContinue = () => { onContinue(); modalRef.current.close(); }
 
   useImperativeHandle(ref, () => ({
     open: async () => {
@@ -44,7 +35,7 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
 
       modalRef.current?.open();
 
-      await mockAsync();
+      await onStartPurchase();
 
       setLoading(false);
     },
@@ -71,7 +62,7 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
               <div style={{ display: 'flex', gap: theme.spacing.tiny }}>
                 <Text>Status</Text>
 
-                <Text color="light">Confirmed</Text>
+                <Text color="light">Confirmed</Text> {/* TODO i18n */}
               </div>
             </div>
 

@@ -5,4 +5,5 @@ export interface Game {
   description: string;
   developer: string;
   released_in: string;
+  slug: string;
 }

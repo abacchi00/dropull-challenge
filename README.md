@@ -31,10 +31,8 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
-- stop propagation no child do BlurredBackground
-- deixar models mais parrudos (mais informacoes sobre as nfts) E arrumar parte de atributos na pagina da NFT
-- Adicionar testes
 - Terminar Componentizar
+- Adicionar testes
 - Upload de demo pro Vercel
 - Adicionar ESLint
 - Adicionar internacionalização

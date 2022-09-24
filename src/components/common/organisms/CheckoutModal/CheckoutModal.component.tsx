@@ -3,8 +3,6 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { Button, Card, Icon, Text } from "@/components/common/atoms";
 import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
-import { mockAsync } from "@/mocks";
-
 import { NFTProduct } from "@/models";
 
 import { theme } from "@/styles";
@@ -12,6 +10,7 @@ import { theme } from "@/styles";
 interface Props {
   onCancel: () => void;
   onProceedToPayment: () => void;
+  onStartCheckout: () => Promise<void>;
   nft: NFTProduct;
 }
 
@@ -19,7 +18,7 @@ export interface CheckoutModalRef extends ModalRef {
   open: () => Promise<void>;
 }
 
-const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment, nft }, ref) => {
+const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment, nft, onStartCheckout }, ref) => {
   const modalRef = useRef<ModalRef>(null);
 
   const [loading, setLoading] = useState(false);
@@ -42,7 +41,7 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
 
       modalRef.current?.open();
 
-      await mockAsync();
+      await onStartCheckout();
 
       setLoading(false);
     },

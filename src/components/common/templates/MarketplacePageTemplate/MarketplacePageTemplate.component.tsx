@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import { Divider, Input, Loader, Text } from '@/components/common/atoms';
-import { GameBanner, InfoDisplay } from "@/components/common/molecules";
+import { GameBanner, InfoDisplay, PageLoader } from "@/components/common/molecules";
 import { NFTCard } from '@/components/common/organisms';
 
 import { useDebounce } from '@/hooks';
 
 import { Game, NFTProduct } from "@/models";
 
-import { AfterBanner, GameInfoContainer, MarketplaceLoading, NFTCardsContainer } from "./MarketplacePageTemplate.styles";
+import { AfterBanner, GameInfoContainer, NFTCardsContainer } from "./MarketplacePageTemplate.styles";
 
 interface Props {
   nfts: NFTProduct[];
@@ -70,7 +70,7 @@ const MarketPlacePageTemplate = ({ nfts, game, onClickNFTCard, onClickBuyNFT, on
 
           {!nftsLoading && !nfts.length && <p>Oops... no results for this search</p>} {/* TODO translate */}
 
-          {nftsLoading && <MarketplaceLoading><Loader />Searching NFTs...</MarketplaceLoading>} {/* TODO translate */}
+          {nftsLoading && <PageLoader loadingMessage="Searching NFTs..." />} {/* TODO translate */}
         </NFTCardsContainer>
       </AfterBanner>
     </>

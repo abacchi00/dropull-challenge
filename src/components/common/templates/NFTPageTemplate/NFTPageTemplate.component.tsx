@@ -19,6 +19,8 @@ interface Props {
   onPurchaseCancel: () => void;
   onPurchaseContinue: () => void;
   onPurchaseViewNFT: () => void;
+  onStartPurchase: () => Promise<void>;
+  onStartCheckout: () => Promise<void>;
 }
 
 const NFTPageTemplate = (
@@ -33,6 +35,8 @@ const NFTPageTemplate = (
     onPurchaseCancel,
     onPurchaseContinue,
     onPurchaseViewNFT,
+    onStartCheckout,
+    onStartPurchase,
   }: Props,
 ) => {
 
@@ -69,6 +73,7 @@ const NFTPageTemplate = (
         nft={nft}
         onCancel={onCheckoutCancel}
         onProceedToPayment={onCheckoutProceedToPayment}
+        onStartCheckout={onStartCheckout}
       />
 
       <PurchaseModal
@@ -77,6 +82,7 @@ const NFTPageTemplate = (
         onCancel={onPurchaseCancel}
         onContinue={onPurchaseContinue}
         onViewNFT={onPurchaseViewNFT}
+        onStartPurchase={onStartPurchase}
       />
     </>
   )

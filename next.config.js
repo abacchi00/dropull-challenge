@@ -3,7 +3,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/marketplace',
+        destination: '/gunstars/marketplace',
         permanent: true,
       },
     ]
