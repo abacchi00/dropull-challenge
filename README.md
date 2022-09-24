@@ -1,5 +1,7 @@
 App created to complete [Dropull's Coding Challenge](https://dropull.notion.site/dropull/Software-Engineer-Challenge-fa62566881d24ccc9d3ea3c4f76fdd3c)
 
+## [Demo website](https://dropull-challenge-abacchi00.vercel.app/)
+
 # ****Acceptance Criteria (Must Have)****
 
 - :heavy_check_mark: Use of React and Next.js
@@ -22,17 +24,15 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use of [Storybook](https://storybook.js.org/)
 - :heavy_check_mark: Loading transitions between pages
 - :heavy_multiplication_x: Accessibility concerns
-- :heavy_multiplication_x: A demo website running on Vercel, Netlify or any other similar free platform
+- :heavy_check_mark: A demo website running on Vercel, Netlify or any other similar free platform
 - :heavy_check_mark: It doesn't have to be pixel perfect but follow the layout
 - :heavy_check_mark: Use theme with design tokens
 <br/><span style="color: gray">Notes: Got to improve it but yes</span>
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
-# ****TODOS (meus)****
-- Criar o HEAD da aplicação
-- Adicionar testes
-- Upload de demo pro Vercel
-- Adicionar ESLint
-- Adicionar internacionalização
-- Verificar referrer para nao deixar o cara entrar direto para a rota de sucesso
-
+# ****TODOS****
+- Add HEAD to app
+- Write some tests
+- Configure ESLint
+- Add i18n (English and Portuguese)
+- Check referrer in order to unpermit accessing purchase page via url typing
