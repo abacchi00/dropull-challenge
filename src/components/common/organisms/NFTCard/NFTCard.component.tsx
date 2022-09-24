@@ -5,14 +5,14 @@ import { ImageContainer, PricesBanner } from './NFTCard.styles';
 
 interface Props {
   img: any;
-  title: string;
+  skinType: string;
   solPrice: number;
   brlPrice: number;
   handleClick: () => void;
   handleBuyNow: () => void;
 }
 
-const NFTCard = ({ img, title, solPrice, brlPrice, handleBuyNow, handleClick }: Props) => {
+const NFTCard = ({ img, skinType, solPrice, brlPrice, handleBuyNow, handleClick }: Props) => {
   return (
     <Card maxWidth="20rem" maxHeight="27rem" onClick={handleClick}>
       <ImageContainer backgroundImage={img}>
@@ -21,7 +21,7 @@ const NFTCard = ({ img, title, solPrice, brlPrice, handleBuyNow, handleClick }: 
         </Button>
       </ImageContainer>
 
-      <p>{title}</p>
+      <p>{skinType}</p>
 
       <PricesBanner>
         <InfoDisplay type="two-line" title="SOL Price" value={`${solPrice} SOL`} icon={{ type: 'solana_icon' }} />
