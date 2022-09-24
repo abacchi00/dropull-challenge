@@ -4,8 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Button, Card, Icon } from "@/components/common/atoms";
 import { CheckoutModal, CheckoutModalRef, NFTDescriptionCard, PurchaseModal, PurchaseModalRef, NFTAttributesDisplay } from "@/components/common/organisms";
 
-import { NFTProduct } from '@/models/nftProduct';
-import { Game } from '@/models/game';
+import { NFTProduct, Game } from '@/models';
 
 import { NFTImageAndBackBtn, NFTPageTemplateContainer, NFTPageTemplateFirstSection } from "./NFTPageTemplate.styles";
 
@@ -42,7 +41,7 @@ const NFTPageTemplate = (
 
   useEffect(() => {
     if (step === 'checkout') checkoutModalRef.current?.open();
-    if (step === 'purchase') purchaseModalRef.current?.open();
+    else if (step === 'purchase') purchaseModalRef.current?.open();
   }, [step]);
 
   return (

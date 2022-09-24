@@ -1,4 +1,4 @@
-import { NFTProduct } from "@/models/nftProduct";
+import { NFTProduct } from "@/models";
 
 import friesImg from '@/assets/images/PNG/fries.png';
 import cardboxImg from '@/assets/images/PNG/cardbox.png';

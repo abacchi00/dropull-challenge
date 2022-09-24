@@ -1,10 +1,11 @@
-import { Game } from "@/models/game";
-import { NFTProduct } from "@/models/nftProduct";
-import { Button, Card, Text } from "../../atoms";
-import { GameChip, InfoDisplay } from "../../molecules";
-import { PricesBanner } from "../NFTCard/NFTCard.styles";
+import { Button, Card, Text } from "@/components/common/atoms";
+import { GameChip, InfoDisplay } from "@/components/common/molecules";
+
+import { Game, NFTProduct } from "@/models";
 
 import { NFTDescriptionCardContainer } from "./NFTDescriptionCard.styles";
+
+import { PricesBanner } from "../NFTCard/NFTCard.styles";
 
 interface Props {
   nft: NFTProduct;

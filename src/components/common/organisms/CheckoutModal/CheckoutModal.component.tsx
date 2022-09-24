@@ -5,8 +5,9 @@ import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
 import { mockAsync } from "@/mocks";
 
+import { NFTProduct } from "@/models";
+
 import { theme } from "@/styles";
-import { NFTProduct } from "@/models/nftProduct";
 
 interface Props {
   onCancel: () => void;

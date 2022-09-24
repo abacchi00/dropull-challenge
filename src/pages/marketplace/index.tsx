@@ -1,82 +1,45 @@
-import styled from '@emotion/styled'; // TODO remove
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 
-import { Divider, Input, Text } from "@/components/common/atoms";
-import { InfoDisplay, GameBanner } from "@/components/common/molecules";
-import { NFTCard } from "@/components/common/organisms";
 import { MainLayout } from "@/components/main/MainLayout";
+import { MarketplacePageTemplate } from '@/components/common/templates';
 
-import { nfts, gunstarsGame, mockAsync } from "@/mocks";
+import { gunstarsGame } from "@/mocks";
 
-import { NFTProduct } from '@/models/nftProduct';
+import { NFTProduct } from '@/models';
 
-import { theme } from "@/styles";
+import { GetNFTsService } from '@/services';
 
-// TODO REFACTOR
-const AfterBanner = styled.div`
-  padding: 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  @media(max-width: 720px) {
-    padding: 0;
-  }
-`;
-
-const Home = () => {
+const MarketplacePage = () => {
   const { push } = useRouter();
 
-  const [searchNfts, setSearchResults] = useState<NFTProduct[]>([]);
-  const [searchString, setSearchString] = useState<string | undefined>();
+  const [NFTs, setNFTs] = useState<NFTProduct[]>([]);
+  const [NFTsLoading, setNFTsLoading] = useState(false);
 
-  const mockGetNfts = async () => await mockAsync().then(() => setSearchResults(nfts));
+  const handleGetNfts = useCallback(async (searchValue?: string) => {
+    setNFTsLoading(true);
 
-  const handleSearch = useCallback((str: string) => {
-    if (!!str) setSearchResults(nfts.filter(nft => nft.title.toLowerCase().includes(str)));
-    else setSearchResults(nfts);
-  }, [searchString]);
+    await GetNFTsService.execute(searchValue).then(nfts => setNFTs(nfts));
 
-  const handleCheckoutNFT = useCallback((nft: NFTProduct) => push(`marketplace/${nft.slug}?step=checkout`), [push]);
-
-  const handleShowNFT = useCallback((nft: NFTProduct) => push(`marketplace/${nft.slug}`), [push]);
-
-  useEffect(() => {
-    mockGetNfts(); // On mount
+    setNFTsLoading(false);
   }, []);
 
   useEffect(() => {
-    handleSearch(searchString);
-  }, [searchString]);
+    handleGetNfts(); // On Mount
+  }, []);
 
   return (
     <MainLayout>
-      <GameBanner {...gunstarsGame} backgroundImage={gunstarsGame.bannerImage} />
-
-      <AfterBanner>{/* TODO refactor */}
-        <div style={{ display: 'flex', gap: theme.spacing.large, flexWrap: 'wrap' }}>
-          <InfoDisplay type="inline" icon={{ type: 'game_developer_icon' }} title="Developer:" value="Monomyto Game Studio" />
-
-          <InfoDisplay type="inline" icon={{ type: 'released_icon' }} title="Released in:" value="10 jun 2022" />
-        </div>
-
-        <Text maxWidth="50%">
-          Fight, explore and create the best strategy to survive epic battles with up to 36 players. Novel gameplay, combining a short learning curve with a high skill cap that a great Battle-Royale game deserves. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Text>
-
-        <Divider />
-
-        <Input placeholder="Search" onChange={(e) => setSearchString(e.target.value)} />
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'center' }}> {/* TODO refactor */}
-          {searchNfts.map(nft => <NFTCard handleClick={() => handleShowNFT(nft)} handleBuyNow={() => handleCheckoutNFT(nft)} {...nft}/>)}
-
-          {!searchNfts.length && <p>Ooops... não encontrei nenhum resultado para essa busca</p>}
-        </div>
-      </AfterBanner>
+      <MarketplacePageTemplate
+        nfts={NFTs}
+        nftsLoading={NFTsLoading}
+        game={gunstarsGame}
+        onClickNFTCard={nft => push(`marketplace/${nft.slug}`)}
+        onClickBuyNFT={nft => push(`marketplace/${nft.slug}?step=checkout`)}
+        onSearch={handleGetNfts}
+      />
     </MainLayout>
   )
 }
 
-export default Home;
+export default MarketplacePage;

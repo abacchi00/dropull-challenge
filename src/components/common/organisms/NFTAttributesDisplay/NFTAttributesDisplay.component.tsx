@@ -1,7 +1,8 @@
-import { NFTProduct } from "@/models/nftProduct";
 
 import { Card } from "@/components/common/atoms";
 import { InfoDisplay } from "@/components/common/molecules";
+
+import { NFTProduct } from "@/models";
 
 import { NFTAttributes } from "./NFTAttributes.styles";
 

@@ -4,10 +4,11 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { Button, Card, Icon, Text } from "@/components/common/atoms";
 import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
+import { NFTProduct } from '@/models';
+
 import { mockAsync } from "@/mocks";
 
 import { theme } from "@/styles";
-import { NFTProduct } from '@/models/nftProduct';
 
 interface Props {
   onCancel: () => void;
