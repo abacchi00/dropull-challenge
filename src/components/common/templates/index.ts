@@ -1,0 +1,1 @@
+export { NFTPageTemplate } from './NFTPageTemplate';
