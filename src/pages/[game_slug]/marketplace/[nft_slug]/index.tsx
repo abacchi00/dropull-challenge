@@ -39,6 +39,7 @@ const NFTPage = () => {
 
   return (
     <MainLayout
+      logo={game?.logoImage}
       loadingPage={loading}
       noContent={!nft || !game}
       loadingMessage="Loading Data..." // TODO translate

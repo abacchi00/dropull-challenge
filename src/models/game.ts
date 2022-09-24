@@ -1,4 +1,5 @@
 export interface Game {
+  logoImage: any;
   bannerImage: any;
   profileImage: any;
   title: string;

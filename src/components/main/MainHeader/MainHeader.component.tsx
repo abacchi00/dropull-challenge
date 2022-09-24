@@ -1,13 +1,15 @@
 import Image from 'next/image';
 
-import gunstarsLogo from '@/assets/images/SVG/gunstars_logo.svg';
-
 import { StyledHeader } from './MainHeader.styles';
 
-const MainHeader = () => {
+interface Props {
+  logo: any;
+}
+
+const MainHeader = ({ logo }: Props) => {
   return (
     <StyledHeader>
-      <Image src={gunstarsLogo} width={137} height={30} />
+      <Image src={logo} width={144} height={32} />
     </StyledHeader>
   );
 }

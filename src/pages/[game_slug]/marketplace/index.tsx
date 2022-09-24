@@ -41,6 +41,7 @@ const MarketplacePage = () => {
 
   return (
     <MainLayout
+      logo={game?.logoImage}
       loadingPage={gameLoading}
       noContent={!game}
       loadingMessage="Loading Game Data..." // TODO translate

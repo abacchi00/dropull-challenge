@@ -4,6 +4,7 @@ import { MainHeader } from '@/components/main';
 import { LayoutContainer, LayoutContent } from './MainLayout.styles';
 
 interface Props {
+  logo: any;
   loadingPage: boolean;
   loadingMessage: string;
   noContent: boolean;
@@ -11,10 +12,10 @@ interface Props {
   children: React.ReactNode;
 }
 
-const MainLayout = ({ children, loadingMessage, loadingPage, noContentMessage, noContent }: Props) => {
+const MainLayout = ({ children, loadingMessage, loadingPage, noContentMessage, noContent, logo }: Props) => {
   return (
     <LayoutContainer>
-      <MainHeader />
+      <MainHeader logo={logo} />
 
       <LayoutContent>
         {!loadingPage && !noContent && children}
