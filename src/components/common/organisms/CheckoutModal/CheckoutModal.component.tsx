@@ -5,7 +5,7 @@ import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
 
 import { NFTProduct } from "@/models";
 
-import { theme } from "@/styles";
+import { AttributeContainer, FlexColumn, ModalTitle, ModalTitleContainer } from "./CheckoutModal.styles";
 
 interface Props {
   onCancel: () => void;
@@ -23,17 +23,9 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
 
   const [loading, setLoading] = useState(false);
 
-  const handleCancel = () => {
-    onCancel();
+  const handleCancel = () => { onCancel(); modalRef.current.close(); }
 
-    modalRef.current.close();
-  }
-
-  const handleProceedToPayment = () => {
-    onProceedToPayment();
-
-    modalRef.current.close();
-  }
+  const handleProceedToPayment = () => { onProceedToPayment(); modalRef.current.close(); }
 
   useImperativeHandle(ref, () => ({
     open: async () => {
@@ -49,47 +41,52 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
   }), []);
 
   return (
-    <Modal ref={modalRef} onClickAway={handleCancel} style={{ padding: theme.spacing.large, gap: theme.spacing.big, maxWidth: '19.25rem' }}>
+    <Modal ref={modalRef} onClickAway={handleCancel} padding="large" gap="big" style={{ maxWidth: '19.25rem' }}>
       {loading
-        ? <ModalLoading onClickToCancel={handleCancel} loadingMessage="We are processing your purchase" /> // TODO translate
+        ? (
+          <ModalLoading
+            onClickToCancel={handleCancel}
+            loadingMessage="We are processing your purchase" // TODO translate
+          />
+        )
         : (
           <>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.extraSmall }}>
-              <h4 style={{ textAlign: 'center' }}>Checkout</h4>
+            <ModalTitleContainer>
+              <ModalTitle>Checkout</ModalTitle>
 
               <Text centered>You are about to purchase <span>{nft.title}</span> from Gunstars.</Text> {/* TODO i18n */}
-            </div>
+            </ModalTitleContainer>
 
-            <Card style={{ flexDirection: 'row', gap: theme.spacing.medium, alignItems: 'center' }}>
+            <Card style={{ flexDirection: 'row', alignItems: 'center' }} gap="medium">
               <Icon size={32} type="phantom_icon" />
 
-              <div style={{ display: 'flex',  flexDirection: 'column' }}>
+              <FlexColumn>
                 <Text>Solana</Text>
 
                 <Text color="light">0xA2...3868</Text>
-              </div>
+              </FlexColumn>
             </Card>
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <FlexColumn>
+              <AttributeContainer>
                 <Text>Wallet Balance</Text> {/* TODO i18n */}
 
-                <Text color="light">3.45 SOL</Text>
-              </div>
+                <Text color="light">3.45 SOL</Text> {/* TODO mock get wallet balance */}
+              </AttributeContainer>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <AttributeContainer>
                 <Text>Service Fee %</Text> {/* TODO i18n */}
 
                 <Text color="light">0 SOL</Text>
-              </div>
+              </AttributeContainer>
 
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <AttributeContainer>
                 <Text>You will pay</Text> {/* TODO i18n */}
 
                 <Text color="light">{nft.solPrice} SOL</Text>
-              </div>
-            </div>
+              </AttributeContainer>
+            </FlexColumn>
 
             <Button onClick={handleProceedToPayment}>proceed to payment</Button> {/* TODO i18n */}
           </>
