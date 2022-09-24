@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import styled from '@emotion/styled';
 
 import { MainLayout } from "@/components/main/MainLayout";
 import { gunstarsGame, nfts } from "@/mocks";
@@ -10,6 +11,52 @@ import { GameChip, InfoDisplay } from '@/components/common/molecules';
 import { CheckoutModal, CheckoutModalRef } from '@/components/common/organisms';
 import { PurchaseModal, PurchaseModalRef } from '@/components/common/organisms';
 import { useEffect, useRef } from 'react';
+
+const NFTAttributesDisplay = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing.extraSmall};
+
+  @media (max-width: 540px) {
+    flex-wrap: wrap;
+  }
+`;
+
+const NFTDescriptionCard = styled(Card)`
+  max-width: 30rem;
+  max-height: 35rem;
+  padding: ${({ theme }) => theme.spacing.huge};
+
+  @media (max-width: 720px) {
+    padding: ${({ theme }) => theme.spacing.large};
+  }
+
+  @media (max-width: 540px) {
+    padding: ${({ theme }) => theme.spacing.medium};
+  }
+`;
+
+const NFTImageAndBackBtn = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'goback image .';
+
+  gap: ${({ theme }) => theme.spacing.large};
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'goback image';
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 'goback' 'image';
+
+    gap: ${({ theme }) => theme.spacing.extraSmall};
+  }
+`;
 
 const NFTPage = () => {
   const { query: { nft_slug, step }, push } = useRouter();
@@ -30,24 +77,20 @@ const NFTPage = () => {
     <MainLayout>
       <div style={{ display: 'flex', gap: theme.spacing.large, flexWrap: 'wrap', justifyContent: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.large }}>
-          <div style={{ display: 'flex', gap: theme.spacing.large }}>
-            <Button btnType="tertiary" style={{ height: 'fit-content' }} onClick={() => push('/marketplace')}>
+          <NFTImageAndBackBtn>
+            <Button btnType="tertiary" style={{ height: 'fit-content', gridArea: 'goback' }} onClick={() => push('/marketplace')}>
               <Icon type="arrow"/>
             </Button>
 
-            <Card maxWidth="30rem" maxHeight="30rem">
+            <Card maxWidth="30rem" maxHeight="30rem" style={{ gridArea: 'image' }}>
               <Image src={nft?.img} width={480} height={480}/>
             </Card>
-
-            <Button btnType="tertiary" style={{ height: 'fit-content', visibility: 'hidden' }}> {/* TODO TAKE OUT */}
-              <Icon type="arrow"/>
-            </Button>
-          </div>
+          </NFTImageAndBackBtn>
 
           <Card >
             <h4>Attributes</h4>
 
-            <div style={{ display: 'flex', gap: theme.spacing.extraSmall }}>
+            <NFTAttributesDisplay>
               <Card style={{ width: '100%' }}>
                 <InfoDisplay title="Rarity" value="Rare" type="two-line" />
               </Card>
@@ -63,11 +106,11 @@ const NFTPage = () => {
               <Card style={{ width: '100%' }}>
                 <InfoDisplay title="Rarity" value="Rare" type="two-line" />
               </Card>
-            </div>
+            </NFTAttributesDisplay>
           </Card>
         </div>
 
-        <Card maxWidth="30rem" maxHeight="35rem" style={{ padding: theme.spacing.huge }}>
+        <NFTDescriptionCard>
           <GameChip title={gunstarsGame.title} image={gunstarsGame.profileImage} /> {/* TODO simulate fetch of game */}
 
           <h1>{nft.title}</h1>
@@ -90,7 +133,7 @@ const NFTPage = () => {
           <Button onClick={() => push(`${nft_slug}/?step=checkout`)}>
             buy now
           </Button>
-        </Card>
+        </NFTDescriptionCard>
       </div>
 
       <CheckoutModal
