@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
-import { Button, Card, Icon, Text } from "@/components/common/atoms";
-import { Modal, ModalLoading, ModalRef } from "@/components/common/molecules";
+import { Button, Card, Text } from "@/components/common/atoms";
+import { Modal, ModalLoading, ModalRef, ConfirmedBadge } from "@/components/common/molecules";
 
 import { NFTProduct } from '@/models';
 
-import { theme } from "@/styles";
+import { ButtonsContainer, ModalTitle, ModalTitleContainer } from './PurchaseModal.styles';
 
 interface Props {
   onCancel: () => void;
@@ -43,38 +43,34 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
   }), []);
 
   return (
-    <Modal ref={modalRef} onClickAway={handleCancel} style={{ padding: theme.spacing.large, gap: theme.spacing.big, maxWidth: '19.25rem' }}>
+    <Modal ref={modalRef} onClickAway={handleCancel} style={{ maxWidth: '19.25rem' }} padding="large" gap="big">
       {loading
-        ? <ModalLoading onClickToCancel={handleCancel} loadingTitle="Purchase" loadingMessage="Send transaction to purchase asset" />
+        ? (
+          <ModalLoading
+            onClickToCancel={handleCancel}
+            loadingTitle="Purchase" // TODO i18n
+            loadingMessage="Send transaction to purchase asset" // TODO i18n
+          />
+        )
         : (
           <>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.extraSmall }}>
-              <h4 style={{ textAlign: 'center' }}>Congrats</h4>
+            <ModalTitleContainer>
+              <ModalTitle>Congrats</ModalTitle> {/* TODO i18n */}
 
-              <Text centered>You just purchased <span>{nft.title}</span> from Gunstars.</Text>
-            </div>
+              <Text centered>You just purchased <span>{nft.title}</span> from Gunstars.</Text> {/* TODO i18n */}
+            </ModalTitleContainer>
 
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'center', backgroundColor: theme.colors.dark[100], padding: theme.spacing.medium, borderRadius: theme.borderRadius.medium }}>
-              <div style={{ border: `2px solid ${theme.colors.primary[100]}`, borderRadius: '50%' }}>
-                <Icon type="success" />
-              </div>
-
-              <div style={{ display: 'flex', gap: theme.spacing.tiny }}>
-                <Text>Status</Text>
-
-                <Text color="light">Confirmed</Text> {/* TODO i18n */}
-              </div>
-            </div>
+            <ConfirmedBadge />
 
             <Card maxWidth="15.25rem" maxHeight="15.25rem" noBorder backgroundColor={100}>
               <Image src={nft.img} width={244} height={244} />
             </Card>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.small }}>
+            <ButtonsContainer>
               <Button onClick={onViewNFT}>view NFT</Button> {/* TODO translate */}
 
               <Button btnType="tertiary" onClick={handleContinue}>continue</Button> {/* TODO translate */}
-            </div>
+            </ButtonsContainer>
           </>
         )
       }

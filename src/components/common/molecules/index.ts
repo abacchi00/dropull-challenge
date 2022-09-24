@@ -5,3 +5,4 @@ export { Modal } from './Modal';
 export type { ModalRef } from './Modal';
 export { ModalLoading } from './ModalLoading';
 export { PageLoader } from './PageLoader';
+export { ConfirmedBadge } from './ConfirmedBadge';

@@ -1,5 +1,7 @@
 import { CSSProperties, MouseEventHandler } from "react";
 
+import { ThemeSpacingOption } from "@/styles/theme/spacing";
+
 import { StyledCard } from "./Card.styles";
 
 interface Props {
@@ -11,6 +13,8 @@ interface Props {
   style?: CSSProperties;
   noBorder?: boolean;
   highlight?: 'always' | 'onHover';
+  padding?: ThemeSpacingOption;
+  gap?: ThemeSpacingOption;
 }
 
 const Card = ({ children, backgroundColor = 200, noBorder = false, ...rest }: Props) => {

@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { ThemeSpacingOption } from '@/styles/theme/spacing';
+
 interface StyledCardAttributes {
   maxWidth?: string;
   maxHeight?: string;
@@ -8,6 +10,8 @@ interface StyledCardAttributes {
   clickable: boolean;
   noBorder: boolean;
   highlight?: 'onHover' | 'always';
+  padding?: ThemeSpacingOption;
+  gap?: ThemeSpacingOption;
 }
 
 export const StyledCard = styled.div<StyledCardAttributes>`
@@ -19,8 +23,8 @@ export const StyledCard = styled.div<StyledCardAttributes>`
 
   background-color: ${({ theme, backgroundColor }) => theme.colors.dark[backgroundColor]};
 
-  padding: ${({ theme }) => theme.spacing.medium};
-  gap: ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme, padding }) => theme.spacing[padding ?? 'medium']};
+  gap: ${({ theme, gap }) => theme.spacing[gap ?? 'medium']};
 
   max-width: ${props => props.maxWidth};
   max-height: ${props => props.maxHeight};
