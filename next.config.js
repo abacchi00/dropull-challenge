@@ -4,7 +4,7 @@ module.exports = {
       {
         source: '/',
         destination: '/gunstars/marketplace',
-        permanent: true,
+        permanent: false,
       },
     ]
   },
