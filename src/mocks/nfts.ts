@@ -8,6 +8,8 @@ import loudFashionImg from '@/assets/images/PNG/loud_fashion.png';
 import loudSkarImg from '@/assets/images/PNG/loud_skar.png';
 import forestMonkeyImg from '@/assets/images/PNG/forest_monkey.png';
 import barbarianImg from '@/assets/images/PNG/barbarian.png';
+import rookImg from '@/assets/images/PNG/simple-rook.jpg';
+import magnusImg from '@/assets/images/PNG/magnus.webp';
 
 export const nfts: NFTProduct[] = [
   {
@@ -113,5 +115,31 @@ export const nfts: NFTProduct[] = [
     skinType: 'Barbarian',
     edition: 'First',
     description: 'I think the Barbarian Vitality means you want to attack the first thing you see or the last thing you see and you want to pay attention to whether you are killing it or running from it. And you have to pay attention to the ambiance of the moment and the things you can bring to bear to beat the fight.',
+  },
+  {
+    slug: 'rook',
+    gameSlug: 'chess-dot-com',
+    img: rookImg,
+    title: 'Simple White Rook',
+    solPrice: 2.34,
+    brlPrice: 379.10,
+    rarity: 'common',
+    boostType: '10% Simplicity',
+    skinType: 'White Rook',
+    edition: 'First',
+    description: 'The white rooks start on squares a1 and h1, while the black rooks start on a8 and h8. The rook moves horizontally or vertically, through any number of unoccupied squares (see diagram). The rook cannot jump over pieces. The rook may capture an enemy piece by moving to the square on which the enemy piece stands, removing it from play.',
+  },
+  {
+    slug: 'rook',
+    gameSlug: 'chess-dot-com',
+    img: magnusImg,
+    title: 'Focused Magnus Carlsen',
+    solPrice: 100,
+    brlPrice: 12301.12,
+    rarity: 'mythic',
+    boostType: '15% Focus',
+    skinType: 'Magnus Carlsen',
+    edition: 'Third',
+    description: 'Sven Magnus Øen Carlsen[a] (born 30 November 1990)[1][2] is a Norwegian chess grandmaster who is the reigning five-time World Chess Champion. He is also a three-time World Rapid Chess Champion and five-time World Blitz Chess Champion. He has held the No. 1 position in the FIDE world chess rankings since 1 July 2011 and trails only Garry Kasparov in time spent as the highest-rated player in the world. His peak rating of 2882 is the highest in history. He also holds the record for the longest unbeaten streak at the elite level in classical chess.[3]',
   },
 ];

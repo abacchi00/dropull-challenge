@@ -12,13 +12,14 @@ interface Props {
   onProceedToPayment: () => void;
   onStartCheckout: () => Promise<void>;
   nft: NFTProduct;
+  gameName: string;
 }
 
 export interface CheckoutModalRef extends ModalRef {
   open: () => Promise<void>;
 }
 
-const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment, nft, onStartCheckout }, ref) => {
+const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceedToPayment, nft, onStartCheckout, gameName }, ref) => {
   const modalRef = useRef<ModalRef>(null);
 
   const [loading, setLoading] = useState(false);
@@ -54,7 +55,7 @@ const CheckoutModal = forwardRef<CheckoutModalRef, Props>(({ onCancel, onProceed
             <ModalTitleContainer>
               <ModalTitle>Checkout</ModalTitle>
 
-              <Text centered>You are about to purchase <span>{nft.title}</span> from Gunstars.</Text> {/* TODO i18n */}
+              <Text centered>You are about to purchase <span>{nft.title}</span> from {gameName}.</Text> {/* TODO i18n */}
             </ModalTitleContainer>
 
             <Card style={{ flexDirection: 'row', alignItems: 'center' }} gap="medium">

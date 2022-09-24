@@ -62,6 +62,7 @@ const MarketPlacePageTemplate = ({ nfts, game, onClickNFTCard, onClickBuyNFT, on
         <NFTCardsContainer>
           {!nftsLoading && nfts.map(nft => (
             <NFTCard
+              key={nft.slug+nft.gameSlug}
               handleClick={() => onClickNFTCard(nft)}
               handleBuyNow={() => onClickBuyNFT(nft)}
               {...nft}

@@ -29,11 +29,10 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 - :heavy_multiplication_x: Use a internationalization framework (e.g. [i18next](https://www.i18next.com/))
 
 # ****TODOS (meus)****
-- Terminar Componentizar
+- Criar o HEAD da aplicação
 - Adicionar testes
 - Upload de demo pro Vercel
 - Adicionar ESLint
 - Adicionar internacionalização
-- Adicionar loading e mock de chamada asincrona na busca de NFTs
 - Verificar referrer para nao deixar o cara entrar direto para a rota de sucesso
 

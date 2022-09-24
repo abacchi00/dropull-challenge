@@ -19,10 +19,10 @@ const MarketplacePage = () => {
   const handleGetNfts = useCallback(async (searchValue?: string) => {
     setNFTsLoading(true);
 
-    await GetNFTsService.execute(game_slug, searchValue).then(nfts => setNFTs(nfts));
+    await GetNFTsService.execute(game_slug as string, searchValue).then(nfts => setNFTs(nfts));
 
     setNFTsLoading(false);
-  }, []);
+  }, [game_slug]);
 
   useEffect(() => {
     // On Mount

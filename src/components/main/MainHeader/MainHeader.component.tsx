@@ -9,7 +9,7 @@ interface Props {
 const MainHeader = ({ logo }: Props) => {
   return (
     <StyledHeader>
-      <Image src={logo} width={144} height={32} />
+      <Image src={logo} width={144} height={32} objectFit="cover"/>
     </StyledHeader>
   );
 }

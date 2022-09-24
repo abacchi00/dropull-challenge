@@ -33,6 +33,8 @@ export const AvatarContainer = styled.div<{ backgroundImage: any }>`
   width: 5rem;
 
   background-image: url(${props => props.backgroundImage.src});
+  background-size: cover;
+  background-repeat: no-repeat;
 
   border-radius: ${({ theme }) => theme.borderRadius.medium };
 

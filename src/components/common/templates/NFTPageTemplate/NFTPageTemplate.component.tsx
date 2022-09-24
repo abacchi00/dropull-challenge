@@ -71,6 +71,7 @@ const NFTPageTemplate = (
       <CheckoutModal
         ref={checkoutModalRef}
         nft={nft}
+        gameName={game.title}
         onCancel={onCheckoutCancel}
         onProceedToPayment={onCheckoutProceedToPayment}
         onStartCheckout={onStartCheckout}
@@ -79,6 +80,7 @@ const NFTPageTemplate = (
       <PurchaseModal
         ref={purchaseModalRef}
         nft={nft}
+        gameName={game.title}
         onCancel={onPurchaseCancel}
         onContinue={onPurchaseContinue}
         onViewNFT={onPurchaseViewNFT}

@@ -14,13 +14,14 @@ interface Props {
   onContinue: () => void;
   onStartPurchase: () => Promise<void>;
   nft: NFTProduct;
+  gameName: string;
 }
 
 export interface PurchaseModalRef extends ModalRef {
   open: () => Promise<void>;
 }
 
-const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinue, onViewNFT, nft, onStartPurchase }, ref) => {
+const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinue, onViewNFT, nft, onStartPurchase, gameName }, ref) => {
   const modalRef = useRef<ModalRef>(null)
 
   const [loading, setLoading] = useState(false);
@@ -57,7 +58,7 @@ const PurchaseModal = forwardRef<PurchaseModalRef, Props>(({ onCancel, onContinu
             <ModalTitleContainer>
               <ModalTitle>Congrats</ModalTitle> {/* TODO i18n */}
 
-              <Text centered>You just purchased <span>{nft.title}</span> from Gunstars.</Text> {/* TODO i18n */}
+              <Text centered>You just purchased <span>{nft.title}</span> from {gameName}.</Text> {/* TODO i18n */}
             </ModalTitleContainer>
 
             <ConfirmedBadge />
