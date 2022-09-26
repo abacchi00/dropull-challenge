@@ -24,7 +24,7 @@ const Button = ({ children, btnType = 'primary', onClick, ...rest }: Props) => {
   };
 
   return (
-    <StyledButton btnType={btnType} onClick={handleClick} loading={loading} {...rest}>
+    <StyledButton btnType={btnType} onClick={handleClick} loading={loading ? 1 : 0} {...rest}>
       {loading
         ? <Loader color={btnType == 'secondary' ? 'primary' : 'light'} />
         : <span>{children}</span>

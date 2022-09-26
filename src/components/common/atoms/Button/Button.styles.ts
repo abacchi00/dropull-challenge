@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'tertiary';
 
-export const StyledButton = styled.button<{ btnType: ButtonTypes, loading: boolean }>`
+export const StyledButton = styled.button<{ btnType: ButtonTypes, loading: number }>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.medium};
   padding: ${({ theme, loading }) => loading ? '13px' : theme.spacing.medium}; // TODO refactor
