@@ -42,7 +42,6 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 
 ## :see_no_evil: ****What could be improved****
 - Evaluate if using Next.js's server side props would be a better option to get data
-- Add HEAD to app
 - Add more unit tests
 - Add more tokens to theme in order to standardize project's design
 - Implement integration tests

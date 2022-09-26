@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -38,28 +39,33 @@ const NFTPage = () => {
   }, [nft_slug]);
 
   return (
-    <MainLayout
-      logo={game?.logoImage}
-      loadingPage={loading}
-      noContent={!nft || !game}
-      loadingMessage="Loading Data..." // TODO translate
-      noContentMessage="Oops... there is nothing here!" // TODO translate
-    >
-      <NFTPageTemplate
-        nft={nft}
-        game={game}
-        step={step as string}
-        onGoBack={() => push(`/${game.slug}/marketplace`)}
-        onClickBuyNow={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=checkout`)}
-        onCheckoutCancel={() => push(`/${game.slug}/marketplace/${nft.slug}`)}
-        onCheckoutProceedToPayment={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=purchase`)}
-        onPurchaseCancel={() => push(`/${game.slug}/marketplace/${nft.slug}`)}
-        onPurchaseContinue={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=purchase`)}
-        onPurchaseViewNFT={() => window.alert('Viewing NFT')}
-        onStartCheckout={StartCheckoutService.execute}
-        onStartPurchase={StartPurchaseService.execute}
-      />
-    </MainLayout>
+    <>
+      <Head><title>{nft ? 'Dropull @ ' + nft.title : 'Dropull'}</title></Head>
+
+      <MainLayout
+        logo={game?.logoImage}
+        logoRedirect={game ? `/${game.slug}/marketplace` : '/'}
+        loadingPage={loading}
+        noContent={!nft || !game}
+        loadingMessage="Loading Data..." // TODO translate
+        noContentMessage="Oops... there is nothing here!" // TODO translate
+      >
+        <NFTPageTemplate
+          nft={nft}
+          game={game}
+          step={step as string}
+          onGoBack={() => push(`/${game.slug}/marketplace`)}
+          onClickBuyNow={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=checkout`)}
+          onCheckoutCancel={() => push(`/${game.slug}/marketplace/${nft.slug}`)}
+          onCheckoutProceedToPayment={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=purchase`)}
+          onPurchaseCancel={() => push(`/${game.slug}/marketplace/${nft.slug}`)}
+          onPurchaseContinue={() => push(`/${game.slug}/marketplace/${nft.slug}/?step=purchase`)}
+          onPurchaseViewNFT={() => window.alert('Viewing NFT')}
+          onStartCheckout={StartCheckoutService.execute}
+          onStartPurchase={StartPurchaseService.execute}
+        />
+      </MainLayout>
+    </>
   );
 };
 

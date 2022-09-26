@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -40,22 +41,27 @@ const MarketplacePage = () => {
   }, []);
 
   return (
-    <MainLayout
-      logo={game?.logoImage}
-      loadingPage={gameLoading}
-      noContent={!game}
-      loadingMessage="Loading Game Data..." // TODO translate
-      noContentMessage="Oops... there is nothing here!" // TODO translate
-    >
-      <MarketplacePageTemplate
-        nfts={NFTs}
-        nftsLoading={NFTsLoading}
-        game={game}
-        onClickNFTCard={nft => push(`/${game.slug}/marketplace/${nft.slug}`)}
-        onClickBuyNFT={nft => push(`/${game.slug}/marketplace/${nft.slug}?step=checkout`)}
-        onSearch={handleGetNfts}
-      />
-    </MainLayout>
+    <>
+      <Head><title>{game ? 'Dropull @ ' + game.title : 'Dropull'}</title></Head>
+
+      <MainLayout
+        logo={game?.logoImage}
+        logoRedirect={game ? `/${game.slug}/marketplace` : '/'}
+        loadingPage={gameLoading}
+        noContent={!game}
+        loadingMessage="Loading Game Data..." // TODO translate
+        noContentMessage="Oops... there is nothing here!" // TODO translate
+      >
+        <MarketplacePageTemplate
+          nfts={NFTs}
+          nftsLoading={NFTsLoading}
+          game={game}
+          onClickNFTCard={nft => push(`/${game.slug}/marketplace/${nft.slug}`)}
+          onClickBuyNFT={nft => push(`/${game.slug}/marketplace/${nft.slug}?step=checkout`)}
+          onSearch={handleGetNfts}
+        />
+      </MainLayout>
+    </>
   )
 }
 
