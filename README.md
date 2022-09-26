@@ -2,7 +2,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 
 ## ---> [Demo website](https://dropull-challenge-abacchi00.vercel.app/) <---
 
-## :ballot_box_with_check: ****Instructions on how to run the project****
+## :computer: ****Instructions on how to run the project****
 - Install `yarn`
 - Clone the project
 - Run `yarn` to install dependencies
@@ -22,7 +22,7 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
   - :heavy_check_mark: What could be improved
 - :heavy_check_mark: Pages must be fully responsive and mobile friendly
 - :heavy_minus_sign: Unit tests - no need to achieve 100% coverage, but rather cover some components to showcase your test writing skills
-- <br/><span style="color: gray">Notes: I don't know if they are enough, but surely I would like to write more (and better) tests</span>
+<br/><span style="color: gray">Notes: I don't know if they are enough, but surely I would like to write more (and better) tests</span>
 - :heavy_check_mark: Good markup, semantic HTML and SEO concerns
 <br/><span style="color: gray">Notes: It is up to the evaluator if it has a good Markup and SEO concerns</span>
 
