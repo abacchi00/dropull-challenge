@@ -32,7 +32,6 @@ App created to complete [Dropull's Coding Challenge](https://dropull.notion.site
 
 # ****TODOS****
 - Add HEAD to app
-- Write some tests
 - Configure ESLint
 - Add i18n (English and Portuguese)
 - Check referrer in order to unpermit accessing purchase page via url typing
